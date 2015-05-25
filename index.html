@@ -1,0 +1,201 @@
+<html>
+<head>
+	<title>摄氏零度</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="static/css/basic/reset.css?ver=547d8673">
+    <link rel="stylesheet" type="text/css" href="static/css/basic/basic.css?ver=547d8673">
+    <link rel="stylesheet" type="text/css" href="static/css/pages/index.css?ver=547d8673">
+    <link rel="stylesheet" type="text/css" href="static/js/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css?ver=547d8673">
+    <style type="text/css">
+    	.ui-content{
+    		padding: 0;
+    	}
+    	.page{
+    		background: url('static/images/Bg.png');
+    		position: relative;
+    		text-align: center;
+    	}
+    	#logo{
+    		width: 125px;
+    		position: absolute;
+    		left: 50%;
+    		top: 50%;
+    		margin-left: -63px;
+    		margin-top: -90px;
+    	}
+    	#pagetwo .content-img{
+    		width: 260px;
+    		display: block;
+    		margin: auto;
+    	}
+    	#pagefour .content-img{
+    		width: 260px;
+    		display: block;
+    		margin: auto;
+    	}
+
+    	#pagetwo #two-1{
+    		margin-top: 100px;
+    		margin-bottom: 40px;
+    	}
+    	#pagetwo #two-2{
+    		margin-bottom: 20px;
+		}
+		#three-1, #three-2{
+			width: 100%;
+		}
+		.p-intro{
+			display: block;
+			width: 250px;
+			margin: 20px auto;
+		}
+		#pagefour #four-1{
+			margin-top: 80px;
+		}
+		#pagefour #four-2{
+			width: 180px;
+			margin: 40px auto;
+		}
+		#pagefive #five-1{
+			display: block;
+			margin-left: 30px;
+			width: 90%;
+			margin-top: 80px;
+			margin-bottom: 60px;
+		}
+		#pagefive .logo{
+			width: 60px;
+		}
+		#pagesix .content-img{
+    		height: 16px;
+    		display: block;
+    		margin-left: 32px;
+    		margin-bottom: 9px;
+    	}
+    	#pagesix #six-1{
+    		width: 260px;
+    		height: 18px;
+    		margin: 160px auto 30px auto;	
+    	}
+    	#pageone .content-img, #pagetwo .content-img, #pagethree .content-img, #pagefour .content-img, #pagefive .content-img, #pagesix .content-img{
+    		display: none;
+    	}
+
+    </style>
+</head>
+<body>
+	<div data-role="page" id="pageone" class="page">	
+	  <div data-role="content">
+	    <img id="logo" src="static/images/01_03.png">
+	  </div>
+	</div>
+
+	<div data-role="page" id="pagetwo" class="page">
+	  <div data-role="content">
+	    <img id="two-1" class="content-img" src="static/images/02_01.png">
+	    <img id="two-2" class="content-img" src="static/images/02_06.png">
+	    <img id="two-3" class="content-img" src="static/images/02_10.png">
+	  </div>
+	</div>
+	<div data-role="page" id="pagethree" class="page">
+	  <div data-role="content">
+	    <img id="three-1" class="content-img" src="static/images/03_02.png">
+	    <img id="three-2" class="content-img" src="static/images/03-2_02.png">
+	    <img id="three-3" class="p-intro" src="static/images/03_03.png">
+	  </div>
+	</div>
+	<div data-role="page" id="pagefour" class="page">
+	  <div data-role="content">
+	    <img id="four-1" class="content-img" src="static/images/04_03.png">
+	    <img id="four-2" class="content-img" src="static/images/04_07.png">
+	    <img id="four-3" class="content-img" src="static/images/04_10.png">
+	  </div>
+	</div>
+	<div data-role="page" id="pagefive" class="page">
+	  <div data-role="content">
+	    <img id="five-1" class="content-img" src="static/images/5_03.png">
+	    <div>
+	    	<img id="five-2" class="logo" src="static/images/05_03.png">
+	    	<img id="five-3" class="logo" src="static/images/05_06.png">	    	
+	    </div>
+	  </div>
+	</div>
+	<div data-role="page" id="pagesix" class="page">
+	  <div data-role="content">
+	    <img id="six-1" class="content-img" src="static/images/06_03.png">
+	    <img id="six-2" class="content-img" src="static/images/06_07.png">
+	    <img id="six-3" class="content-img" src="static/images/06_10.png">
+	    <img id="six-4" class="content-img" src="static/images/06_12.png">
+	    <img id="six-5" class="content-img" src="static/images/06_14.png">
+	    <img id="six-6" class="content-img" src="static/images/06_17.png">
+
+	  </div>
+	</div>
+
+
+
+
+	<script type="text/javascript" src="static/js/lib/jquery-1.11.2.min.js?ver=547d8673"></script>
+    <script type="text/javascript" src="static/js/lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js?ver=547d8673"></script>
+    <script type="text/javascript" src="static/js/lib/iscroll.js?ver=547d8673"></script>
+    <script type="text/javascript" src="static/js/pages/swipe.js?ver=547d8673"></script>
+    <!--script type="text/javascript" src="static/js/pages/index.js?ver=547d8673"></script-->
+    <script type="text/javascript">
+    	$('#pageone').on('swipeup',function(){
+    		$.mobile.changePage("#pagetwo", { transition: "slideup" } );    	
+    	}).on('swipedown',function(){
+    		$.mobile.changePage("#pagesix", { transition: "slidedown" } );    	
+    	});
+    	$('#pagetwo').on('swipeup',function(){
+    		$.mobile.changePage("#pagethree", { transition: "slideup" } );    	
+    	}).on('swipedown',function(){
+    		$.mobile.changePage("#pageone", { transition: "slidedown" } );    	
+    	});
+    	$('#pagethree').on('swipeup',function(){
+    		$.mobile.changePage("#pagefour", { transition: "slideup" } );    	
+    	}).on('swipedown',function(){
+    		$.mobile.changePage("#pagetwo", { transition: "slidedown" } );    	
+    	});
+    	$('#pagefour').on('swipeup',function(){
+    		$.mobile.changePage("#pagefive", { transition: "slideup" } );    	
+    	}).on('swipedown',function(){
+    		$.mobile.changePage("#pagethree", { transition: "slidedown" } );    	
+    	});
+    	$('#pagefive').on('swipeup',function(){
+    		$.mobile.changePage("#pagesix", { transition: "slideup" } );    	
+    	}).on('swipedown',function(){
+    		$.mobile.changePage("#pagefour", { transition: "slidedown" } );    	
+    	});
+    	$('#pagesix').on('swipeup',function(){
+    		$.mobile.changePage("#pageone", { transition: "slideup" } );    	
+    	}).on('swipedown',function(){
+    		$.mobile.changePage("#pagefive", { transition: "slidedown" } );    	
+    	});
+
+
+    	$('#logo').slideUp( 300 ).delay( 500 ).fadeIn( 400 );
+    	$( window ).hashchange(function() {
+    		var hash = location.hash;
+    		// alert(hash);
+    		if(hash == ''){
+    			$('#logo').delay( 500 ).fadeIn( 400 );
+    		}else if(hash == '#pagetwo'){
+    			for(var i=1; i<=3; i++){
+    				$('#two-'+i).delay( 300*i ).fadeIn( 400 );
+    			}    		
+    		}else if(hash == '#pagefour'){
+    			for(var i=1; i<=3; i++){
+    				$('#four-'+i).delay( 300*i ).fadeIn( 400 );
+    			}
+    		}else if(hash == '#pagesix'){
+    			for(var i=1; i<=6; i++){
+    				$('#six-'+i).slideUp( 300 ).delay( 300*i ).fadeIn( 400 );
+    			}
+    		}
+    	})
+    </script>
+
+
+</body>
+</html>
