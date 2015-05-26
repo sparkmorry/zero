@@ -247,13 +247,13 @@
                 $('#logo').hide();
     			$('#logo').delay( 800 ).fadeIn( 800 );
     		}else if(hash == '#pagetwo'){
-                $('#two-1').css({'top': '-20px'}).hide();
+                $('#two-1').css({'top': '60px'}).hide();
                 $('#two-1').delay(delay).fadeIn( 500 );
     			for(var i=2; i<=3; i++){
                     // $('#two-'+i).css({'left': '50%'});
                     var top = 0;
                     if(i==1){
-                        top = -20;
+                        top = 60;
                     }else if(i == 2){
                         top = 160;
                     }else if(i == 3){
@@ -270,7 +270,7 @@
                 // $('#three-7').css({'left': '-3000px'});
                 $('#three-7').css({'top': '120%'});
                 for(var i=1; i<=3; i++){
-                    $('#three-'+i).css({'top': '120%', 'left': '50%'});
+                    $('#three-'+i).show().css({'top': '120%', 'left': '50%'});
                     var topMap = {
                         '1' : 175,
                         '2' : 285,
