@@ -45,11 +45,17 @@
         }
 		#pagethree .content-img{
 			width: 100%;
+            position: absolute;
+            top: 100%;
+            left: 0px;
 		}
 		#pagethree .p-intro{
 			display: block;
 			width: 250px;
-			margin: 20px auto;
+            position: absolute;
+            left: 50%;
+            margin-left: -125px;
+            top: 100%;
 		}
 		#pagefive #five-1{
 			display: block;
@@ -159,6 +165,7 @@
     <script type="text/javascript" src="static/js/pages/swipe.js?ver=547d8673"></script>
     <!--script type="text/javascript" src="static/js/pages/index.js?ver=547d8673"></script-->
     <script type="text/javascript">
+        var ptSwipe = 0;
     	$('#pageone').on('swipeup',function(){
     		$.mobile.changePage("#pagetwo", { transition: "slideup" } );    	
     	}).on('swipedown',function(){
@@ -170,11 +177,38 @@
     		$.mobile.changePage("#pageone", { transition: "slidedown" } );    	
     	});
     	$('#pagethree').on('swipeup',function(){
-    		$.mobile.changePage("#pagefour", { transition: "slideup" } );    	
+            ptSwipe++;
+            // alert(ptSwipe);
+            if(ptSwipe == 3){
+                $.mobile.changePage("#pagefour", { transition: "slideup" } );       
+            }else if(ptSwipe == 1){
+                for(var i=4; i<=6; i++){
+                    // $('#three-'+i).css({'top': '100%'});
+                    $('#three-'+i).css({'left': '-3000px'});
+
+                    var topMap = {
+                        '4' : 195,
+                        '5' : 305,
+                        '6' : 400,
+                    }                                        
+                    // $('#three-'+i).delay( 500*(i-3) ).animate({top: topMap[i]+"px"});
+                    // $('#three-'+(i-3)).delay( 500*(i-3) ).animate({top: "-300px"});
+                    $('#three-'+i).delay( 500*(i-3) ).css({top: topMap[i]+"px"}).animate({left: "50%"});
+                    $('#three-'+(i-3)).delay( 500*(i-3) ).animate({left: "-3000px"});
+
+                }                 
+            }else if(ptSwipe == 2){
+                $('#three-7').delay( 1000 ).css({top: "195px"}).animate({left: "50%"});
+                for(var i=4; i<=6; i++){
+                    $('#three-'+i).delay( 300*(i-3) ).animate({left: "-3000px"});
+                }
+               
+            }
     	}).on('swipedown',function(){
     		$.mobile.changePage("#pagetwo", { transition: "slidedown" } );    	
     	});
     	$('#pagefour').on('swipeup',function(){
+            ptSwipe=0;
     		$.mobile.changePage("#pagefive", { transition: "slideup" } );    	
     	}).on('swipedown',function(){
     		$.mobile.changePage("#pagethree", { transition: "slidedown" } );    	
@@ -200,7 +234,7 @@
     			$('#logo').delay( 300 ).fadeIn( 800 );
     		}else if(hash == '#pagetwo'){
     			for(var i=1; i<=3; i++){
-                    $('#two-'+i).css({'top': '100%'});
+                    $('#two-'+i).css({'top': '100%', 'left': '50%'});
                     var top = 0;
                     if(i==1){
                         top = -20;
@@ -211,7 +245,23 @@
                     }
     				$('#two-'+i).delay( 500*i ).animate({top: top+"px"});
     			}    		
-    		}else if(hash == '#pagefour'){
+    		}else if(hash == '#pagethree'){
+                $('#three-0-1').delay( 200 ).animate({top: "30px"});
+                $('#three-0-2').delay( 300 ).animate({top: "110px"});
+                var swipe = 0;
+                $('#three-7').css({'left': '-3000px'});
+                for(var i=1; i<=3; i++){
+                    $('#three-'+i).css({'top': '100%', 'left': '50%'});
+                    var topMap = {
+                        '1' : 195,
+                        '2' : 305,
+                        '3' : 400,
+                        '4' : 300,
+                        '5' : 360
+                    }                                        
+                    $('#three-'+i).delay( 500+500*i ).animate({top: topMap[i]+"px"});
+                }
+            }else if(hash == '#pagefour'){
     			for(var i=1; i<=3; i++){
     				$('#four-'+i).css({'top': '100%'});
                     var top = 0;
