@@ -10,7 +10,7 @@
     <style type="text/css">
     	.ui-content{
     		padding: 0;
-            min-height: 100%;
+            /*min-height: 100%;*/
     	}
     	.page{
     		background: url('static/images/Bg.jpg');
@@ -65,12 +65,12 @@
             top: 100%;
 		}
 		#pagefive .logo{
-			width: 260px;
+			width: 230px;
             /*margin-bottom: -15px;*/
             position: absolute;
             top: 100%;
             left: 50%;
-            margin-left: -130px;
+            margin-left: -115px;
 		}
         #pagefive #five-5{
             margin-bottom: 0px;
@@ -90,7 +90,10 @@
     	#pageone .content-img, #pagesix .content-img{
     		display: none;
     	}
-
+        .in, .out {
+            /*-webkit-animation-timing-function: ease-in-out;*/
+            -webkit-animation-duration: 600ms !important;
+        }
     </style>
 </head>
 <body>
@@ -155,8 +158,9 @@
 
 	  </div>
 	</div>
-
-
+    <audio autoplay="autoplay">
+        <source src="static/media/H5MUSIC.mp3" type="audio/mpeg" />    
+    </audio>
 
 
 	<script type="text/javascript" src="static/js/lib/jquery-1.11.2.min.js?ver=547d8673"></script>
@@ -183,24 +187,26 @@
                 $.mobile.changePage("#pagefour", { transition: "slideup" } );       
             }else if(ptSwipe == 1){
                 for(var i=4; i<=6; i++){
-                    // $('#three-'+i).css({'top': '100%'});
-                    $('#three-'+i).css({'left': '-3000px'});
+                    $('#three-'+i).css({'top': '100%'});
+                    // $('#three-'+i).css({'left': '-3000px'});
 
                     var topMap = {
                         '4' : 195,
                         '5' : 305,
                         '6' : 400,
                     }                                        
-                    // $('#three-'+i).delay( 500*(i-3) ).animate({top: topMap[i]+"px"});
-                    // $('#three-'+(i-3)).delay( 500*(i-3) ).animate({top: "-300px"});
-                    $('#three-'+i).delay( 500*(i-3) ).css({top: topMap[i]+"px"}).animate({left: "50%"});
-                    $('#three-'+(i-3)).delay( 500*(i-3) ).animate({left: "-3000px"});
+                    $('#three-'+i).delay( 500+300*(i-3) ).animate({top: topMap[i]+"px"});
+                    $('#three-'+(i-3)).delay( 300*(i-3) ).animate({top: "-40%"}, 'slow');
+                    // $('#three-'+i).delay( 500*(i-3) ).css({top: topMap[i]+"px"}).animate({left: "50%"});
+                    // $('#three-'+(i-3)).delay( 500*(i-3) ).animate({left: "-3000px"});
 
                 }                 
             }else if(ptSwipe == 2){
-                $('#three-7').delay( 1000 ).css({top: "195px"}).animate({left: "50%"});
+                $('#three-7').css({'top': '100%'});
+                $('#three-7').delay( 1000 ).animate({top: "195px"});
                 for(var i=4; i<=6; i++){
-                    $('#three-'+i).delay( 300*(i-3) ).animate({left: "-3000px"});
+                    // $('#three-'+i).delay( 300*(i-3) ).animate({left: "-3000px"});
+                    $('#three-'+i).delay( 300*(i-3) ).animate({top: "-40%"}, 'slow');
                 }
                
             }
@@ -211,6 +217,7 @@
             ptSwipe=0;
     		$.mobile.changePage("#pagefive", { transition: "slideup" } );    	
     	}).on('swipedown',function(){
+            ptSwipe=0;
     		$.mobile.changePage("#pagethree", { transition: "slidedown" } );    	
     	});
     	$('#pagefive').on('swipeup',function(){
@@ -225,15 +232,18 @@
     	});
 
 
+        var delay = 800, duration=200;
     	$('#logo').slideUp( 300 ).delay( 300 ).fadeIn( 800 );
     	$( window ).hashchange(function() {
     		var hash = location.hash;
     		// alert(hash);
     		if(hash == ''){
                 $('#logo').hide();
-    			$('#logo').delay( 300 ).fadeIn( 800 );
+    			$('#logo').delay( 800 ).fadeIn( 800 );
     		}else if(hash == '#pagetwo'){
-    			for(var i=1; i<=3; i++){
+                $('#two-1').css({'top': '-20px'}).hide();
+                $('#two-1').delay(delay).fadeIn( 500 );
+    			for(var i=2; i<=3; i++){
                     $('#two-'+i).css({'top': '100%', 'left': '50%'});
                     var top = 0;
                     if(i==1){
@@ -243,13 +253,14 @@
                     }else if(i == 3){
                         top = 300;
                     }
-    				$('#two-'+i).delay( 500*i ).animate({top: top+"px"});
+    				$('#two-'+i).delay( delay+duration*i ).animate({top: top+"px"});
     			}    		
     		}else if(hash == '#pagethree'){
                 $('#three-0-1').delay( 200 ).animate({top: "30px"});
                 $('#three-0-2').delay( 300 ).animate({top: "110px"});
                 var swipe = 0;
-                $('#three-7').css({'left': '-3000px'});
+                // $('#three-7').css({'left': '-3000px'});
+                $('#three-7').css({'top': '100%'});
                 for(var i=1; i<=3; i++){
                     $('#three-'+i).css({'top': '100%', 'left': '50%'});
                     var topMap = {
@@ -259,7 +270,7 @@
                         '4' : 300,
                         '5' : 360
                     }                                        
-                    $('#three-'+i).delay( 500+500*i ).animate({top: topMap[i]+"px"});
+                    $('#three-'+i).delay( delay+duration*i ).animate({top: topMap[i]+"px"});
                 }
             }else if(hash == '#pagefour'){
     			for(var i=1; i<=3; i++){
@@ -272,7 +283,7 @@
                     }else if(i == 3){
                         top = 400;
                     }
-                    $('#four-'+i).delay( 500*i ).animate({top: top+"px"});
+                    $('#four-'+i).delay( delay+duration*i ).animate({top: top+"px"});
 
     			}
     		}else if(hash == '#pagefive'){
@@ -280,18 +291,18 @@
                     $('#five-'+i).css({'top': '100%'});
                     var topMap = {
                         '1' : 60,
-                        '2' : 180,
-                        '3' : 240,
-                        '4' : 300,
-                        '5' : 360
+                        '2' : 170,
+                        '3' : 222,
+                        '4' : 274,
+                        '5' : 326
 
                     }                    
-                    $('#five-'+i).delay( 500*i ).animate({top: topMap[i]+"px"});
+                    $('#five-'+i).delay( delay+duration*i ).animate({top: topMap[i]+"px"});
 
                 }
             }else if(hash == '#pagesix'){
     			for(var i=1; i<=6; i++){
-    				$('#six-'+i).slideUp( 300 ).delay( 300*i ).fadeIn( 400 );
+    				$('#six-'+i).slideUp( 300 ).delay( delay+duration*i ).fadeIn( 400 );
     			}
     		}
     	})
